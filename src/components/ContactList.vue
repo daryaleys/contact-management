@@ -1,15 +1,16 @@
 <script lang="ts" setup>
 import { onMounted, ref, type Ref, computed } from 'vue';
-import type Contact from '../types/contactType';
-import ContactItem from "./ContactItem.vue"
-import SearchBar from "../components/SearchBar.vue"
+import { type Contact } from '@/types/contactType';
+import ContactItem from "@/components/ContactItem.vue"
+import SearchBar from "@/components/SearchBar.vue"
+import { getContacts } from '@/methods';
 
 // get contact list from localStorage / JSON
 const contactList: Ref<Contact[]> = ref([]);
-const contactsError: Ref<string> = ref("");
+const contactsError: Ref<boolean> = ref(false);
 
 onMounted(() => {
-    const contacts: Ref<Contact[]> | null = JSON.parse(localStorage.getItem('contacts'));
+    const contacts: Contact[] | null = getContacts();
 
     if (contacts && contacts.length) {
         contactList.value = contacts;
@@ -20,14 +21,14 @@ onMounted(() => {
                 contactList.value = data;
                 localStorage.setItem('contacts', JSON.stringify(data));
             })
-            .catch(() => errorMessage.value = "Не удалось загрузить контакты. Пожалуйста, обратитесь в поддержку")
+            .catch(() => contactsError.value = true)
     }
 })
 
 // filter by name
 const searchValue: Ref<string> = ref("");
 const filteredList = computed(() => {
-    return contactList.value.filter((item: ItemType) => item.name.toLowerCase().includes(searchValue.value.toLowerCase()));
+    return contactList.value.filter((item: Contact) => item.name.toLowerCase().includes(searchValue.value.toLowerCase()));
 })
 </script>
 
