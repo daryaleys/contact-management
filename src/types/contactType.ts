@@ -4,3 +4,5 @@ export type Contact = {
 	phone: string;
 	email: string;
 };
+
+export type InputContact = Omit<Contact, "id">;
