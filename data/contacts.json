@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"name": "Мария",
+		"phone": "79501231231",
+		"email": "mar@gmail.com"
+	},
+	{
+		"id": 2,
+		"name": "Виктор",
+		"phone": "79991239999",
+		"email": "123@ya.ru"
+	},
+	{
+		"id": 3,
+		"name": "Максим",
+		"phone": "79991239999",
+		"email": "bobyor@mail.ru"
+	}
+]
