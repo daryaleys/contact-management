@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
+import Btn from "./components/UI/Btn.vue"
 const route = useRoute();
 </script>
 
 <template>
     <nav>
         <router-link to="/">Главная</router-link>
-        <router-link to="/create" class="btn">Создать новый контакт</router-link>
+        <router-link to="/create">
+            <Btn>Создать новый контакт</Btn>
+        </router-link>
     </nav>
 
     <router-view v-slot="{ Component }">
@@ -36,7 +39,7 @@ nav {
     padding: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
 
     a {

@@ -8,10 +8,12 @@ const input = defineModel()
 
 <style lang="scss" scoped>
 .input {
+    width: 100%;
     outline: none;
     border: 1px solid #42b983;
     color: #246246;
-    padding: 5px;
+    padding: 8px;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 </style>

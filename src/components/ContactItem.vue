@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { Contact } from '../types/contactType'
+import Btn from './UI/Btn.vue';
 
 const props = defineProps<Contact>()
 
@@ -21,8 +22,10 @@ const editUrl = "/edit/" + props.id;
             <span class="text">{{ email }}</span>
         </div>
         <div class="contact-actions">
-            <router-link :to="editUrl" class="btn edit-btn">Редактировать</router-link>
-            <button class="btn delete-btn" @click="$emit('delete', id)">Удалить</button>
+            <router-link :to="editUrl" class="btn">
+                <Btn>Редактировать</Btn>
+            </router-link>
+            <Btn @clickBtn="$emit('delete', id)">Удалить</Btn>
         </div>
     </div>
 </template>
@@ -39,6 +42,7 @@ const editUrl = "/edit/" + props.id;
 
 .contact-actions {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 </style>
