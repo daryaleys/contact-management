@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ContactForm from "../components/ContactForm.vue";
+import ContactForm from "@/components/ContactForm.vue";
 import { getContacts, setContacts } from "@/methods";
 import { Contact } from "@/types/contactType";
 import { useRouter } from "vue-router";

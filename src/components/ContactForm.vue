@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { type Contact, type InputContact } from '@/types/contactType';
-import Btn from './UI/Btn.vue';
+import Btn from '@/components/UI/Btn.vue';
 
 const props = defineProps<Partial<Contact>>();
 

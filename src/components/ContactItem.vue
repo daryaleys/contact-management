@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { Contact } from '../types/contactType'
-import Btn from './UI/Btn.vue';
+import type { Contact } from '@/types/contactType'
+import Btn from '@/components/UI/Btn.vue';
 
 const props = defineProps<Contact>()
 
